@@ -1,12 +1,9 @@
 from cohortextractor import (
     StudyDefinition,
     Measure,
-    codelist,
-    codelist_from_csv,
-    combine_codelists,
-    filter_codes_by_category,
     patients,
 )
+
 from codelists import *
 
 start_date = "2015-01-01"
