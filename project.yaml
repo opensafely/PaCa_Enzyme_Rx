@@ -6,13 +6,13 @@ expectations:
 actions:
 
   generate_enzyme_replace_1:    
-    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2015-01-01 to 2019-01-01 by month" --skip-existing --output-dir=output --output-format=feather
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2021-12-01 to 2022-01-01 by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
       highly_sensitive:
         cohort: output/measures/inp*.feather
   
   generate_enzyme_replace_2:    
-    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2019-02-01 to today by month" --skip-existing --output-dir=output --output-format=feather
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2022-02-01 to today by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
       highly_sensitive:
         cohort: output/measures/in*.feather

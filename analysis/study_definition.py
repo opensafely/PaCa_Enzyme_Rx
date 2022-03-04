@@ -60,7 +60,7 @@ study = StudyDefinition(
         return_expectations={"incidence":0.95}
     ),
     died_any=patients.died_from_any_cause(
-        on_or_after="index_date",
+        on_or_before="index_date", # this should be before 
         returning="binary_flag",
         return_expectations={"incidence": 0.60},
     ),
@@ -68,9 +68,9 @@ study = StudyDefinition(
     enzyme_replace=patients.with_these_medications(
         enzyme_replace,
         # on_or_before="pa_ca_date",
-        between=["index_date - 1 months", "index_date"],
+        between=["index_date", "last_day_of_month(index_date)"],
         returning="binary_flag",
-        return_expectations={"incidence": 0.50},
+        return_expectations={"incidence": 0.2},
     ),
 )
 
