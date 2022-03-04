@@ -16,7 +16,7 @@ study = StudyDefinition(
         "incidence": 0.5,
         },
     index_date="2015-01-01", # this will change monthly
-# population all adults with pancreatic cancer (adult age at pancreatic cacncer diagnosis) 
+# population all adults with pancreatic cancer (adult age at pancreatic cancer diagnosis) 
 # who have not had surgical resection after pa ca diagnosis, and who
 # remian alive and registered at an index date (to allow altering denominator)
     population=patients.satisfying(
