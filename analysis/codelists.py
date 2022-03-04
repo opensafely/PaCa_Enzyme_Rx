@@ -4,9 +4,9 @@ from cohortextractor import (
 )
 
 enzyme_replace = codelist_from_csv(
-    "codelists/user-agleman-pancreatic-enzyme-replacement-therapy.csv",
+    "codelists/user-agleman-pancreatic-enzyme-replacement-therapy-dmd.csv",
     system="snomed",
-    column="code",
+    column="dmd_id",
 )
 
 pan_cancer_codes = codelist_from_csv(

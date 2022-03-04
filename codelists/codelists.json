@@ -6,11 +6,11 @@
       "downloaded_at": "2022-03-01 23:47:26.038802Z",
       "sha": "68a1b0eb6896e6d6bb94fd912a90bc11e8797b0c"
     },
-    "user-agleman-pancreatic-enzyme-replacement-therapy.csv": {
-      "id": "user/agleman/pancreatic-enzyme-replacement-therapy/1cdeae6d",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/pancreatic-enzyme-replacement-therapy/1cdeae6d/",
-      "downloaded_at": "2022-03-01 23:47:26.305507Z",
-      "sha": "14af44c36130cc9be3f9f7a52f26a663d63b1aa6"
+    "user-agleman-pancreatic-enzyme-replacement-therapy-dmd.csv": {
+      "id": "user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc",
+      "url": "https://codelists.opensafely.org/codelist/user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc/",
+      "downloaded_at": "2022-03-04 15:43:07.000526Z",
+      "sha": "96b5d2a485eb14317b1fbc41361e44db04730044"
     },
     "user-agleman-pancreatic-cancer-icd10.csv": {
       "id": "user/agleman/pancreatic-cancer-icd10/6abfc802",
