@@ -1,4 +1,4 @@
 user/agleman/pancreatic_cancer_snomed/11566403
-user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc/
+user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc
 user/agleman/pancreatic-cancer-icd10/6abfc802
-user/agleman/resection-of-pancreatic-cancer-opcs-4/64221d44
+user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a

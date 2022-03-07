@@ -19,10 +19,10 @@
       "sha": "bf5f5c19c16ae8f02efd4915982e4b5910d4bbaf"
     },
     "user-agleman-resection-of-pancreatic-cancer-opcs-4.csv": {
-      "id": "user/agleman/resection-of-pancreatic-cancer-opcs-4/64221d44",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/resection-of-pancreatic-cancer-opcs-4/64221d44/",
-      "downloaded_at": "2022-03-01 23:47:26.838882Z",
-      "sha": "793231fb73b734e4ae69d2efa267acb9989aa200"
+      "id": "user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a",
+      "url": "https://codelists.opensafely.org/codelist/user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a/",
+      "downloaded_at": "2022-03-07 17:00:44.873722Z",
+      "sha": "39aa544fe8661ff10e96d73b6ce333105b1c042d"
     }
   }
 }
