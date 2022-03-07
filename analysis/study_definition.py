@@ -30,7 +30,7 @@ study = StudyDefinition(
     ),
     pa_ca=patients.with_these_clinical_events(
         pan_cancer_codes,
-        on_or_after="1950-01-01",
+        on_or_before="index_date",
         find_first_match_in_period=True,
         include_date_of_match=True,
         include_month=True,
@@ -68,7 +68,7 @@ study = StudyDefinition(
     enzyme_replace=patients.with_these_medications(
         enzyme_replace,
         # on_or_before="pa_ca_date",
-        between=["index_date", "last_day_of_month(index_date)"],
+        between=["index_date", "index_date + 61 days"],
         returning="binary_flag",
         return_expectations={"incidence": 0.2},
     ),
