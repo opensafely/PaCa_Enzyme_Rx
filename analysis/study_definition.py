@@ -72,6 +72,26 @@ study = StudyDefinition(
         returning="binary_flag",
         return_expectations={"incidence": 0.2},
     ),
+    region=patients.registered_practice_as_of(
+        "pa_ca_date",
+        returning="nuts1_region_name",
+        return_expectations={
+            "rate": "universal",
+            "category": {
+                "ratios": {
+                    "North East": 0.1,
+                    "North West": 0.1,
+                    "Yorkshire and the Humber": 0.2,
+                    "East Midlands": 0.1,
+                    "West Midlands": 0.1,
+                    "East of England": 0.1,
+                    "London": 0.1,
+                    "South East": 0.2,
+                },
+            },
+        },
+    ),
+
 )
 
 measures = [
@@ -80,6 +100,13 @@ measures = [
         numerator="enzyme_replace",
         denominator="population",
         group_by="population",
+        small_number_suppression=True,
+    ),
+    Measure(
+        id="ExByRegion_rate",
+        numerator="enzyme_replace",
+        denominator="population",
+        group_by="region",
         small_number_suppression=True,
     ),
 ]
