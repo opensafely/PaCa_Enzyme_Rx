@@ -9,19 +9,25 @@
 ## library
 library(tidyverse)
 library(here)
+library(MASS)
+
 
 ###
 #download and prep the data
 ###
 
 ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.csv"))
+####when using downloaded data 
+#ERx_Rates <- read.csv("~/OpenSafely/ERx/Output release/measure_enzymeRx_rate.csv")
+#ERx_Rates$date <- as.Date(ERx_Rates$date, format = "%Y-%m-%d")
 
-# calc rate per 1000
-ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 1000
+
+# calc rate per 100
+ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 100
 ###
 # plot monthly number of Rxs
 ###
-ERx_number <- ggplot(data = ERx_Rates,
+p <- ggplot(data = ERx_Rates,
                     aes(date, enzyme_replace)) +
   geom_line()+
   geom_point()+
@@ -31,27 +37,157 @@ ERx_number <- ggplot(data = ERx_Rates,
        x = "Time", y = "Number of patients")+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+start <- "2020-03-01"
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+guidel <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(guidel, format="%Y-%m-%d"), size=0.3, colour="blue")
+
 # save
 ggsave(
-  plot= ERx_number, dpi=800,width = 20,height = 10, units = "cm",
+  plot= p, dpi=800,width = 20,height = 10, units = "cm",
   filename="ERx_number.png", path=here::here("output"),
 )
 
 ###
-# plot monthly rates per 1000
+# plot monthly rates per 100
 ###
-ERx_rates <- ggplot(data = ERx_Rates,
+p <- ggplot(data = ERx_Rates,
                           aes(date, rate)) +
   geom_line()+
   geom_point()+
   scale_x_date(date_breaks = "2 month",
                date_labels = "%Y-%m")+
   labs(title = "Patients receiving enzyme replacement", 
-       x = "Time", y = "Rate per 1000 patients diagnosed")+
+       x = "Time", y = "Rate per 100 patients diagnosed")+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+start <- "2020-03-01"
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+guideli <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="blue")
+
+
 # save
 ggsave(
-  plot= ERx_rates, dpi=800,width = 20,height = 10, units = "cm",
+  plot= p, dpi=800,width = 20,height = 10, units = "cm",
   filename="ERx_rates.png", path=here::here("output"),
 )
+
+########## model the data 
+
+model_data <- subset(ERx_Rates, select=c("rate","date"))
+model_data$lockdown <- 0 
+model_data$guideline <- 0
+
+# periods
+start <- "2020-03-01"
+guideli <- "2018-12-01"
+
+#model_data <- model_data[6:dim(model_data)[1],]
+
+model_data$time <- as.numeric(c(1:dim(model_data)[1]))
+model_data_no_covid <- model_data
+model_data$guideline[model_data$date>guideli & model_data$date<=start]<-1
+model_data$lockdown[model_data$date>start]<-1
+
+model <- glm(rate ~ time 
+                 + lockdown + lockdown*time
+                 #+ guideline + guideline*time
+             , data=model_data)
+
+model_data$predicted <- predict(model,type="response",model_data)
+model_data$predicted_no_covid <- predict(model,type="response",model_data_no_covid)
+
+ilink <- family(model)$linkinv
+model_data <- bind_cols(model_data, setNames(as_tibble(predict(model, model_data, se.fit = TRUE)[1:2]),
+                                             c('fit_link','se_link')))
+model_data <- mutate(model_data,
+                     pred  = ilink(fit_link),
+                     upr = ilink(fit_link + (2 * se_link)),
+                     lwr = ilink(fit_link - (2 * se_link)))
+model_data <- bind_cols(model_data, setNames(as_tibble(predict(model, model_data_no_covid, se.fit = TRUE)[1:2]),
+                                             c('fit_link_noCov','se_link_noCov')))
+
+
+model_data <- mutate(model_data,
+                     pred_noCov  = ilink(fit_link_noCov),
+                     upr_noCov = ilink(fit_link_noCov + (2 * se_link_noCov)),
+                     lwr_noCov = ilink(fit_link_noCov - (2 * se_link_noCov)))
+
+
+p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Recorded data")) +
+  geom_line()+
+  geom_point()+
+  scale_x_date(date_breaks = "3 month",
+               date_labels = "%Y-%m")+
+  labs(title = "Patients receiving enzyme replacement \n Region: whole England", 
+       x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
+start <- "2020-03-01"
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+20, y=41), 
+                    color = "red",label="Lockdown", angle = 90, size = 3)
+
+guideli <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
+p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d")+20, y=41), 
+                    color = "black",label="Qual Standard", angle = 90, size = 3)
+
+p<-p+geom_line(data=model_data, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
+#p<-p+geom_ribbon(data=model_data, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
+p<-p+geom_line(data=model_data, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
+p<-p+geom_ribbon(data=model_data, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
+                 lty=0, fill = "red", alpha = 0.1)
+p <- p + labs(caption="OpenSafely-TPP May 2022")
+p <- p + theme(plot.caption = element_text(size=8))
+p <- p + theme(plot.title = element_text(size = 10))
+p <- p + scale_color_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "black", 
+                                                 "Model with COVID-19" = "blue"),guide="none")
+p <- p + scale_linetype_manual(name = NULL, values = c("Model" = "solid", "Recorded data" = "solid",
+                                                   "Model with COVID-19" = "dashed"),guide="none")
+p <- p + scale_fill_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "white",
+                                                    "Model with COVID-19" = "white"),guide="none")
+p <- p + guides(colour = guide_legend(override.aes = list(linetype=c(1,2,1),fill=c("red",NA,NA), 
+                                                          shape = c(NA, NA, 16))))
+
+ggsave(
+  plot= p, dpi=800,width = 20,height = 10, units = "cm",
+  filename="model_rates.png", path=here::here("output"),
+)
+
+####
+# plot by region 
+####
+
+
+Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
+Region$rate <- Region$enzyme_replace / Region$population * 100
+
+p <- ggplot(data = Region,
+            aes(date, rate, color = region, lty = region)) +
+  geom_line()+
+  #geom_point(color = "region")+
+  scale_x_date(date_breaks = "3 month",
+               date_labels = "%Y-%m")+
+  labs(title = "Patients receiving enzyme replacement \n by Region in England", 
+       x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
+p <- p + labs(caption="OpenSafely-TPP May 2022")
+p <- p + theme(plot.caption = element_text(size=8))
+p <- p + theme(plot.title = element_text(size = 10))
+
+start <- "2020-03-01"
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+guideli <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
+
+
+# save
+ggsave(
+  plot= p, dpi=800,width = 20,height = 10, units = "cm",
+  filename="Region.png", path=here::here("output"),
+)
+
+
