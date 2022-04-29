@@ -5,6 +5,12 @@ expectations:
 
 actions:
 
+  generate_study_population:
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --output-format=csv
+    outputs:
+      highly_sensitive:
+        cohort: output/input.csv
+
   generate_enzyme_replace_1:    
     run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2015-01-01 to 2018-08-01 by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
@@ -12,7 +18,7 @@ actions:
         cohort: output/measures/inp*.feather
   
   generate_enzyme_replace_2:    
-    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-01-01 by month" --skip-existing --output-dir=output --output-format=feather
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-04-01 by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
       highly_sensitive:
         cohort: output/measures/in*.feather
@@ -26,7 +32,8 @@ actions:
       ]
     outputs:
       moderately_sensitive:
-        measure_csv: output/measures/measure_enzymeRx*_rate.csv
+        measure_csv1: output/measures/measure_enzymeRx*_rate.csv
+        measure_csv2: output/measures/measure_ExByRegion*_rate.csv
 
   describe_ERx_rates:
     run: r:latest analysis/analysis_enzymeRx.R
@@ -38,3 +45,5 @@ actions:
       moderately_sensitive:
         Fig1: output/ERx_number.png
         Fig2: output/ERx_rates.png
+        Fig3: output/model_rates.png
+        Fig4: output/Region.png
