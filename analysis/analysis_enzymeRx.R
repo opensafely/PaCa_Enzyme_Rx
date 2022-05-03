@@ -83,33 +83,34 @@ model_data$guideline <- 0
 start <- "2020-03-01"
 guideli <- "2018-12-01"
 
+# censor the analysis - cut two months at the end 
 #model_data <- model_data[6:dim(model_data)[1],]
-
-model_data$time <- as.numeric(c(1:dim(model_data)[1]))
-model_data_no_covid <- model_data
-model_data$guideline[model_data$date>guideli & model_data$date<=start]<-1
-model_data$lockdown[model_data$date>start]<-1
+model_data2 <- model_data[1:(dim(ERx_Rates)[1]-2),]
+model_data2$time <- as.numeric(c(1:dim(model_data2)[1]))
+model_data_no_covid <- model_data2
+model_data2$guideline[model_data2$date>guideli & model_data2$date<=start]<-1
+model_data2$lockdown[model_data2$date>start]<-1
 
 model <- glm(rate ~ time 
                  + lockdown + lockdown*time
                  #+ guideline + guideline*time
-             , data=model_data)
+             , data=model_data2)
 
-model_data$predicted <- predict(model,type="response",model_data)
-model_data$predicted_no_covid <- predict(model,type="response",model_data_no_covid)
+model_data2$predicted <- predict(model,type="response",model_data2)
+model_data2$predicted_no_covid <- predict(model,type="response",model_data_no_covid)
 
 ilink <- family(model)$linkinv
-model_data <- bind_cols(model_data, setNames(as_tibble(predict(model, model_data, se.fit = TRUE)[1:2]),
+model_data2 <- bind_cols(model_data2, setNames(as_tibble(predict(model, model_data2, se.fit = TRUE)[1:2]),
                                              c('fit_link','se_link')))
-model_data <- mutate(model_data,
+model_data2 <- mutate(model_data2,
                      pred  = ilink(fit_link),
                      upr = ilink(fit_link + (2 * se_link)),
                      lwr = ilink(fit_link - (2 * se_link)))
-model_data <- bind_cols(model_data, setNames(as_tibble(predict(model, model_data_no_covid, se.fit = TRUE)[1:2]),
+model_data2 <- bind_cols(model_data2, setNames(as_tibble(predict(model, model_data_no_covid, se.fit = TRUE)[1:2]),
                                              c('fit_link_noCov','se_link_noCov')))
 
 
-model_data <- mutate(model_data,
+model_data2 <- mutate(model_data2,
                      pred_noCov  = ilink(fit_link_noCov),
                      upr_noCov = ilink(fit_link_noCov + (2 * se_link_noCov)),
                      lwr_noCov = ilink(fit_link_noCov - (2 * se_link_noCov)))
@@ -127,17 +128,17 @@ p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Reco
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
 p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+20, y=41), 
-                    color = "red",label="Lockdown", angle = 90, size = 3)
+                    color = "red",label="Lockdown", angle = 90, size = 2)
 
 guideli <- "2018-12-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
 p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d")+20, y=41), 
-                    color = "black",label="Qual Standard", angle = 90, size = 3)
+                    color = "black",label="Guidelines:\nPublication of\nthe Qual. Standard", angle = 90, size = 2)
 
-p<-p+geom_line(data=model_data, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
-#p<-p+geom_ribbon(data=model_data, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
-p<-p+geom_line(data=model_data, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
-p<-p+geom_ribbon(data=model_data, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
+p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
+#p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
+p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
+p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                  lty=0, fill = "red", alpha = 0.1)
 p <- p + labs(caption="OpenSafely-TPP May 2022")
 p <- p + theme(plot.caption = element_text(size=8))
