@@ -190,6 +190,3 @@ ggsave(
   plot= p, dpi=800,width = 20,height = 10, units = "cm",
   filename="Region.png", path=here::here("output"),
 )
-
-# add comment 
-# another lineeeeeeeeeeeeeeeeeeeeee
