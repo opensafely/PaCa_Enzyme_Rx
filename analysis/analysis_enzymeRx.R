@@ -18,9 +18,14 @@ library(MASS)
 
 ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.csv"))
 ####when using downloaded data 
-#ERx_Rates <- read.csv("~/OpenSafely/ERx/Output release/measure_enzymeRx_rate.csv")
+#ERx_Rates <- read.csv("C:/Users/al0025/OneDrive - University of Surrey/OldHomeDrive/al0025/Documents/OpenSafely/ERx/Output release/Archive/measure_enzymeRx_rate.csv")
 #ERx_Rates$date <- as.Date(ERx_Rates$date, format = "%Y-%m-%d")
 
+
+###### cut data that is after March
+cut_date2 <- "2022-03-01"
+a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+ERx_Rates <- ERx_Rates[-a,]
 
 # calc rate per 100
 ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 100
@@ -83,9 +88,10 @@ model_data$guideline <- 0
 start <- "2020-03-01"
 guideli <- "2018-12-01"
 
-# censor the analysis - cut two months at the end 
-#model_data <- model_data[6:dim(model_data)[1],]
-model_data2 <- model_data[1:(dim(ERx_Rates)[1]-2),]
+ 
+model_data2 <- model_data[1:dim(model_data)[1],]
+# censor the analysis - cut two months at the end
+#model_data2 <- model_data[1:(dim(ERx_Rates)[1]-2),]
 model_data2$time <- as.numeric(c(1:dim(model_data2)[1]))
 model_data_no_covid <- model_data2
 model_data2$guideline[model_data2$date>guideli & model_data2$date<=start]<-1
@@ -160,9 +166,10 @@ ggsave(
 ####
 # plot by region 
 ####
-
-
 Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
+###### cut data that is after March
+a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+Region <- Region[-a,]
 Region$rate <- Region$enzyme_replace / Region$population * 100
 
 p <- ggplot(data = Region,
@@ -190,3 +197,4 @@ ggsave(
   plot= p, dpi=800,width = 20,height = 10, units = "cm",
   filename="Region.png", path=here::here("output"),
 )
+
