@@ -70,7 +70,10 @@ start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
 guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="blue")
-
+QS <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
+p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=25), 
+                    color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
 
 # save
 ggsave(
@@ -133,13 +136,18 @@ p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Reco
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=40.2), 
+p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=40), 
                     color = "red",label="Lockdown", angle = 90, size = 3)
 
 guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
-p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=40.2), 
+p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=40), 
                     color = "black",label="National\nguidelines", angle = 90, size = 3)
+
+QS <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
+p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=40), 
+                    color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
 
 p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
 #p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
@@ -195,6 +203,10 @@ p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, co
 p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=25), 
                     color = "black",label="National\nguidelines", angle = 90, size = 3)
 
+QS <- "2018-12-01"
+p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
+p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=25), 
+                    color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
 
 # save
 ggsave(
