@@ -44,7 +44,7 @@ p <- ggplot(data = ERx_Rates,
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-guidel <- "2018-12-01"
+guidel <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guidel, format="%Y-%m-%d"), size=0.3, colour="blue")
 
 # save
@@ -68,7 +68,7 @@ p <- ggplot(data = ERx_Rates,
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-guideli <- "2018-12-01"
+guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="blue")
 
 
@@ -86,7 +86,7 @@ model_data$guideline <- 0
 
 # periods
 start <- "2020-03-01"
-guideli <- "2018-12-01"
+guideli <- "2018-02-01"
 
  
 model_data2 <- model_data[1:dim(model_data)[1],]
@@ -133,13 +133,13 @@ p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Reco
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+20, y=41), 
-                    color = "red",label="Lockdown", angle = 90, size = 2)
+p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=42), 
+                    color = "red",label="Lockdown", angle = 90, size = 3)
 
-guideli <- "2018-12-01"
+guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
-p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d")+20, y=41), 
-                    color = "black",label="Guidelines:\nPublication of\nthe Qual. Standard", angle = 90, size = 2)
+p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=42), 
+                    color = "black",label="National\nguidelines", angle = 90, size = 3)
 
 p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
 #p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
@@ -188,8 +188,12 @@ p <- p + theme(plot.title = element_text(size = 10))
 
 start <- "2020-03-01"
 p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-guideli <- "2018-12-01"
+p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=30), 
+                    color = "red",label="Lockdown", angle = 90, size = 3)
+guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
+p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=30), 
+                    color = "black",label="National\nguidelines", angle = 90, size = 3)
 
 
 # save
