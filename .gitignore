@@ -13,4 +13,3 @@ venv/
 /r_scripts/*
 /output_requests_releases/*
 *.html
-*.ipynb
