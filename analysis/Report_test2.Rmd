@@ -29,6 +29,10 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
 
 ### Study design 
 
+```{r fig1, fig.height=4, fig.width=3, fig.cap="Figure 1. Study flowchart"}
+knitr::include_graphics(here::here("analysis", "Flowchart.png"))
+```
+
 ### Outputs
 * Regional rates of prescribing of pancreatic enzyme replacement therapy to people with unresectable pancreatic cancer
   * England
