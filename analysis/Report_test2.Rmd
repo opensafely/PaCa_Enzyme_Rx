@@ -1,0 +1,66 @@
+---
+title: "Report_test1 for the enzyme study"
+author: "Agz Leman"
+date: '2022-11-11'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(here)
+library(rmarkdown)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
+```
+
+# The impact of COVID-19 on prescribing of pancreatic enzyme replacement therapy for people with unresectable pancreatic cancer in England. A cohort study using OpenSafely-TPP
+
+## Abstract
+**Background** Cancer treatments were variably disrupted during the COVID-19 pandemic. Despite UK national guidelines recommending pancreatic enzyme replacement therapy to all people with unresectable pancreatic cancer, observational studies demonstrate under-prescribing.
+
+**Aim** To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
+
+**Methods** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled the effect of COVID-19 with multivariable linear regression.
+
+**Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 48% in 2022. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands and lowest (20% to 30%) in London.
+
+**Conclusions** In contrast to many other treatments, prescribing of pancreatic enzyme replacement therapy was not affected during the COVID-19 pandemic. Although overall rates increased over time, substantial under-prescribing existed at the end of this study (March 2022). At just under 50% in 2022, the rates were still below the recommended 100% standard. Prior work evaluating quality of care in this area relied on manual audits which come at increased cost and reduced frequency of updates. With the methodological advantage of OpenSAFELY, we established an automated audit which allows for regular updates.
+
+## Methods 
+
+### Study design 
+
+### Outputs
+* Regional rates of prescribing of pancreatic enzyme replacement therapy to people with unresectable pancreatic cancer
+  * England
+  * Region in England 
+    * East
+    * East Midlands
+    * South West
+    * West Midlands
+    * London
+    * ...
+
+## Results 
+
+### The effect of COVID-19
+_Figure 2_ shows the rates in prescribing over time in England. Overall, the COVID-19 pandemic did not affect PERT prescribing to people with unresectable pancreatic cancer. A small decrease in treatment rates, by about 3% (from 46% to 43%), was observed at the beginning of the COVID-19 pandemic from March to July 2020. This dip in rates could potentially be associated with the effect of the COVID-19 healthcare crisis. However, the rates of prescribing recovered by September 2020 to rates that would be expected if the pandemic had not occurred. 
+
+### National and regional trends 
+In view of the national target rate of 100%, the national trend increased gradually over time on average by 1% every year, ranging from 41% in 2015 to 48% in 2022 (_Figure 2_). _Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Throughout the study period, the lowest rates of between 20% to 30% were in the London region. The effect of COVID-19 was the most pronounced in the West Midlands area with a dip in rates by nearly 10% (from 50% to 40%) in July 2020. This recovered by September 2020 to higher than the pre-pandemic levels. 
+
+## Discussion 
+
+### Summary 
+Reassuringly,despite the challenges of the COVID-19 pandemic, clinicians ensured continuity of care in this area. Overall, there was no change in prescribing of PERT to people with unresectable pancreatic cancer during the COVID-19 pandemic. We did observe a small and temporary decrease in prescribing rates from March to July 2020, which recovered fully by September 2020 to rates that would be expected if the pandemic had not happened. However, with the target prescribing rate of 100% (all adults with unresectable pancreatic cancer are to be prescribed PERT), we also found that despite the clear benefits, PERT remained under-prescribed in this group of patients. 
+
+### Findings in context
+The delivery of cancer services was severely impacted by the COVID-19 pandemic. Effects upon cancer surgery[17, 18], chemotherapy and cancer research[20]have been well described. In pancreatic cancer, centres have described impact upon the entire pathway, including diagnostic, staging as well as treatment delivery.In contrast, in this study we show that prescribing of PERT to people with unresectable pancreatic cancer was not affected during the COVID-19 pandemic.A previous national UK study, undertaken between 2001 and 2015, demonstrated an overall prescribing rate of PERT to people with pancreatic cancer at 21% [3]. A regional UK study observed a prescribing rate of 22% between 2010 and 2012. More recently, the national RICOCHET audit conducted April to August 2018, six months after the introduction of the national pancreatic cancer guidelines, demonstrated rates of 74% for patients with resectable and 45% with unresectable disease [15]. The current study demonstrated rates consistent with the RICOCHET audit. However an important finding is that although increasing over time, at just under 50% in 2022, the rates were still below the recommended 100% quality standard. 
+
+### Strengths and limitations 
+The key strength of this population-based study is the large size (40% of the population in England) and completeness of the underlying raw EHR data in OpenSAFELY. In addition, because the OpenSAFELY platform provides analysis directly on the servers of the healthcare records administrator (TPP), we access near real-time data while prioritising patient privacy (no need for data transfers). The national audit undertaken by the RICOCHET Study Group[15], relied on manual audits of patient records by many local teams in the UK, following by compilation of the results centrally. By contrast, the automated audit method that we developed, enables frequent and cost-effective re-execution of the analysis at regular audit cycles. In addition, because with OpenSAFELY we are able to access the full set of patients’ records, we provided a longitudinal view of trends in prescribing since 2015. This allowed us to investigate the effect of the COVID-19 pandemic. All analytics software and code lists are shared openly and are available for inspection and re-use, providing opportunity for reproduction of this report to support recovery from the COVID-19 pandemic and reducing duplicative efforts.We also note some limitations. We note that our data will only include prescriptions issued in primary care. We have written extensively on the availability of hospital prescriptions and NHS Digital have recently made some of this hospital medication data available for a small subset of hospitals. We will seek to incorporate this in any future work. In addition, pancreatic cancer was defined by coding in primary care, rather than via linkage with cancer registry, the gold standard for cancer diagnoses. 
+
+### Policy Implications and future research
+Across the UK, pancreatic cancer care has been centralised since 2001, largely due to a need to reduce perioperative mortality. This, however, has created a potential disconnect between specialist and non-specialist sites. Patients with unresectable pancreatic cancer are typically treated at their local hospital, which for most patients will not be a specialist site, and will receive regular repeat prescriptions from their general practitioner. The RICOCHET audit of pancreatic cancer and PERT prescribing demonstrated that rates of PERT prescribing were highest within specialist sites, regardless of tumour stage and treatment intent [15]. It also demonstrated that high prescribing rates where shared within hospitals (i.e., if there was high prescribing in resectable cancer, there was high prescribing in unresectable cancer and vice versa), but not across each local network which consisted of the central specialist surgical unit and their referring non specialist sites (i.e., prescribing rates in each specialist centre did not correlate with those within each centres network of referring non-specialist sites). The geographic variation observed in the present study contrasts with that data. Given that RICOCHET was a snapshot of a 3-month cohort of patients, the present study is much better placed to observe regional variation in practice. Understanding why regions have differing rates of prescribing could help overcome barriers to PERT prescribing. Additionally,qualitative research, beyond the scope of this study, is needed to understand barriers to the implementation of NICE guidelines and qualitystandards. More broadly, the implications of this study for data usage to improve NHS services are very substantial. Previously, practical and privacy challenges around accessing GP data meant that the largest study to date in this area, RICOCHET, relied on manual audits by many local teams at a single point in time. This manual approach imposes a substantial resource burden on local teams collecting data as well as being hard to reproduce on an ongoing basis. Using the OpenSAFELY framework we were able to execute a single analysis in OpenSAFELY-TPP for 40% of the population in near real-time, whilst leaving the data in situ preserving trust. OpenSAFELY was the single most trusted COVID-19 data project in a rigorous Citizen’s Jury sponsored by the NHS and the National Data Guardian[26]. We can extend this analysis to OpenSAFELY-EMIS, increasing coverage to 99% of English general practices, as well as providing fine grained demographic (e.g.,ethnicity) or clinical sub-populations. OpenSAFELY tools can facilitate cost-effective, ongoing and near real-time audits and feedback to NHS organisations. This presents an important opportunity in the context of rapidly evolving pressures on the health service during the COVID-19 recovery period. 
+
+## Conclusions 
+The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. However, despite national guidelines,under-prescribing of PERT continues and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients. The research into the effect of COVID-19 as well as barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
