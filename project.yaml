@@ -54,7 +54,7 @@ actions:
 
   generate_notebook:
     run: jupyter:latest jupyter nbconvert /workspace/analysis/reportEx.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
-    needs: [generate_plots]
+    needs: [describe_ERx_rates]
     outputs:
       moderately_sensitive:
-        notebook: output/report.html
+        notebook: output/Test1_JNoteb.html
