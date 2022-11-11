@@ -57,4 +57,4 @@ actions:
     needs: [describe_ERx_rates]
     outputs:
       moderately_sensitive:
-        notebook: output/Test1_JNoteb.html
+        notebook: output/reportEx.html
