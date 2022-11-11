@@ -34,15 +34,15 @@ knitr::include_graphics(here::here("analysis", "Flowchart.png"))
 ```
 
 ### Outputs
-* Regional rates of prescribing of pancreatic enzyme replacement therapy to people with unresectable pancreatic cancer
-  * England
-  * Region in England 
-    * East
-    * East Midlands
-    * South West
-    * West Midlands
-    * London
-    * ...
+Regional rates of prescribing of pancreatic enzyme replacement therapy to people with unresectable pancreatic cancer
+* England
+* Region in England 
+  * East
+  * East Midlands
+  * South West
+  * West Midlands
+  * London
+  * ...
 
 ## Results 
 
