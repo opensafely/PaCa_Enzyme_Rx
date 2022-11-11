@@ -37,10 +37,7 @@ actions:
 
   describe_ERx_rates:
     run: r:latest analysis/analysis_enzymeRx.R
-    needs: 
-      [
-        generate_measures_enzymeRx,
-      ]
+    needs: [generate_measures_enzymeRx]
     outputs:
       moderately_sensitive:
         Fig1: output/ERx_number.png
@@ -50,6 +47,7 @@ actions:
   
   generate_report:
     run: r:latest analysis/Produce_html.R
+    needs: [describe_ERx_rates]
     outputs:
       moderately_sensitive:
-        cohort: output/Test1.html
+        cohort: output/Test1_R.html
