@@ -12,3 +12,5 @@ venv/
 .Rhistory
 /r_scripts/*
 /output_requests_releases/*
+*.html
+
