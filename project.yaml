@@ -52,9 +52,9 @@ actions:
       moderately_sensitive:
         cohort: output/Test1_R.html
 
-  generate_notebook:
-    run: jupyter:latest jupyter nbconvert /workspace/analysis/reportEx.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
-    needs: [describe_ERx_rates]
-    outputs:
-      moderately_sensitive:
-        notebook: output/reportEx.html
+  # generate_notebook:
+  #   run: jupyter:latest jupyter nbconvert /workspace/analysis/reportEx.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
+  #   needs: [describe_ERx_rates]
+  #   outputs:
+  #     moderately_sensitive:
+  #       notebook: output/reportEx.html
