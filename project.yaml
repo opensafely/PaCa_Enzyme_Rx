@@ -18,7 +18,7 @@ actions:
         cohort: output/measures/inp*.feather
   
   generate_enzyme_replace_2:    
-    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-04-01 by month" --skip-existing --output-dir=output --output-format=feather
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-11-01 by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
       highly_sensitive:
         cohort: output/measures/in*.feather
