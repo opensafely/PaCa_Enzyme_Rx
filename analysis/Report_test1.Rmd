@@ -31,13 +31,16 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 **Conclusions:** 
 The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. Although overall rates increased over time, substantial under-prescribing persists. At just under 50% in 2022, the rates were still below the recommended 100% standard. Despite the national guidelines, under-prescribing of PERT continued and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients with pancreatic cancer. The research into barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
 
+<br/><br/>
 
 ### Study flow 
 
 ```{r fig1, fig.height=4, fig.width=3, fig.cap="Figure 1. Study flowchart"}
-knitr::include_graphics(here::here("analysis", "Flowchart.png"))
+knitr::include_graphics(here::here("analysis", "Flowchart2.png"))
 ```
 
+<br/><br/>
+<br/><br/>
 
 ## Results 
 
@@ -50,6 +53,9 @@ In view of the national target rate of 100%, the national trend increased gradua
 knitr::include_graphics(here::here("output", "model_rates.png"))
 ```
 
+<br/><br/>
+<br/><br/>
+
 ### Regional rates
 _Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Throughout the study period, the lowest rates of between 20% to 30% were in the London region. The effect of COVID-19 was the most pronounced in the West Midlands area with a dip in rates by nearly 10% (from 50% to 40%) in July 2020. This recovered by September 2020 to higher than the pre-pandemic levels. 
 
@@ -57,5 +63,11 @@ _Figure 3_ shows the rates in prescribing by regions in England. The highest rat
 knitr::include_graphics(here::here("output", "Region.png"))
 ```
 
+<br/><br/>
+<br/><br/>
 
-## End of the report
+#### End of the report
+
+<br/><br/>
+<br/><br/>
+
