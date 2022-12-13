@@ -22,7 +22,7 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 ## Abstract
 **Background:** Cancer treatments were variably disrupted during the COVID-19 pandemic. Despite UK national guidelines recommending pancreatic enzyme replacement therapy to all people with unresectable pancreatic cancer, observational studies demonstrate under-prescribing.
 
-**Aim:** To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
+<b>Aim:</b> To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
 
 **Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from January 2015 to November 2022 and investigated the effect of COVID-19 with multivariable linear regression.
 
@@ -30,7 +30,6 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 
 **Conclusions:** 
 The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. Although overall rates increased over time, substantial under-prescribing persists. At just under 50% in 2022, the rates were still below the recommended 100% standard. Despite the national guidelines, under-prescribing of PERT continued and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients with pancreatic cancer. The research into barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
-
 <br/><br/>
 
 ### Study flow 
@@ -40,7 +39,6 @@ knitr::include_graphics(here::here("analysis", "Flowchart2.png"))
 ```
 
 <br/><br/>
-<br/><br/>
 
 ## Results 
 
@@ -49,21 +47,23 @@ _Figure 2_ shows the rates in prescribing over time in England. Overall, the COV
 
 In view of the national target rate of 100%, the national trend increased gradually over time on average by 1% every year, ranging from 41% in 2015 to 48% in 2022 (_Figure 2_). 
 
+<br/><br/>
+
 ```{r fig2, fig.height=1, fig.width=2, fig.cap="Figure 2. Prescribing rates in England"}
 knitr::include_graphics(here::here("output", "model_rates.png"))
 ```
 
 <br/><br/>
-<br/><br/>
 
 ### Regional rates
 _Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Throughout the study period, the lowest rates of between 20% to 30% were in the London region. The effect of COVID-19 was the most pronounced in the West Midlands area with a dip in rates by nearly 10% (from 50% to 40%) in July 2020. This recovered by September 2020 to higher than the pre-pandemic levels. 
+
+<br/><br/>
 
 ```{r fig3, fig.height=1, fig.width=2, fig.cap="Figure 3. Prescribing rates in Regions in England"}
 knitr::include_graphics(here::here("output", "Region.png"))
 ```
 
-<br/><br/>
 <br/><br/>
 
 #### End of the report
