@@ -23,9 +23,9 @@ ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.cs
 
 
 ###### cut data that is after March
-cut_date2 <- "2022-11-01"
-a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-ERx_Rates <- ERx_Rates[-a,]
+#cut_date2 <- "2022-03-01"
+#a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+#ERx_Rates <- ERx_Rates[-a,]
 
 # calc rate per 100
 ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 100
