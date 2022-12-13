@@ -24,7 +24,7 @@ ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.cs
 
 ###### cut data that is after March
 cut_date2 <- "2022-11-01"
-a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+a <- which(ERx_Rates$date >= as.Date(cut_date2, format = "%Y-%m-%d"))
 ERx_Rates <- ERx_Rates[-a,]
 
 # calc rate per 100
@@ -176,7 +176,7 @@ ggsave(
 ####
 Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
 ###### cut data that is after March
-a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+a <- which(Region$date >= as.Date(cut_date2, format = "%Y-%m-%d"))
 Region <- Region[-a,]
 Region$rate <- Region$enzyme_replace / Region$population * 100
 
