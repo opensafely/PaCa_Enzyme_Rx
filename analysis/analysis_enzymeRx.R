@@ -23,9 +23,9 @@ ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.cs
 
 
 ###### cut data that is after March
-#cut_date2 <- "2022-03-01"
-#a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-#ERx_Rates <- ERx_Rates[-a,]
+cut_date2 <- "2022-11-01"
+a <- which(ERx_Rates$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+ERx_Rates <- ERx_Rates[-a,]
 
 # calc rate per 100
 ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 100
@@ -154,7 +154,7 @@ p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19",
 p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
 p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                  lty=0, fill = "red", alpha = 0.1)
-p <- p + labs(caption="OpenSafely-TPP May 2022")
+p <- p + labs(caption="OpenSafely-TPP Dec 2022")
 p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
 p <- p + scale_color_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "black", 
@@ -176,8 +176,8 @@ ggsave(
 ####
 Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
 ###### cut data that is after March
-#a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-#Region <- Region[-a,]
+a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+Region <- Region[-a,]
 Region$rate <- Region$enzyme_replace / Region$population * 100
 
 p <- ggplot(data = Region,
@@ -190,7 +190,7 @@ p <- ggplot(data = Region,
        x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
-p <- p + labs(caption="OpenSafely-TPP May 2022")
+p <- p + labs(caption="OpenSafely-TPP Dec 2022")
 p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
 
