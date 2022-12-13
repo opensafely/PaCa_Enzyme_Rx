@@ -176,8 +176,8 @@ ggsave(
 ####
 Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
 ###### cut data that is after March
-a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-Region <- Region[-a,]
+#a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+#Region <- Region[-a,]
 Region$rate <- Region$enzyme_replace / Region$population * 100
 
 p <- ggplot(data = Region,
