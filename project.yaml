@@ -18,7 +18,7 @@ actions:
         cohort: output/measures/inp*.feather
   
   generate_enzyme_replace_2:    
-    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-11-01 by month" --skip-existing --output-dir=output --output-format=feather
+    run: cohortextractor:latest generate_cohort --study-definition study_definition --index-date-range "2018-09-01 to 2022-12-01 by month" --skip-existing --output-dir=output --output-format=feather
     outputs:      
       highly_sensitive:
         cohort: output/measures/in*.feather
@@ -44,6 +44,8 @@ actions:
         Fig2: output/ERx_rates.png
         Fig3: output/model_rates.png
         Fig4: output/Region.png
+        measure_csv3: output/ERx_Rates_rounded.csv
+        measure_csv4: output/Region_rounded.csv
   
   generate_report:
     run: r:latest analysis/Produce_html.R
