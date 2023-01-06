@@ -18,21 +18,30 @@ library(MASS)
 
 ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.csv"))
 ####when using downloaded data 
-#ERx_Rates <- read.csv("C:/Users/al0025/OneDrive - University of Surrey/OldHomeDrive/al0025/Documents/OpenSafely/ERx/Output release/Archive/measure_enzymeRx_rate.csv")
+#ERx_Rates <- read.csv("C:/Users/al0025/OneDrive - University of Surrey/OldHomeDrive/al0025/Documents/OpenSafely/Projects/ERx/Output release/Archive/measure_enzymeRx_rate.csv")
 #ERx_Rates$date <- as.Date(ERx_Rates$date, format = "%Y-%m-%d")
 
+ERx_Rates_rounded <- ERx_Rates
 
-###### cut data that is after March
+for (i in 1:2){
+  ERx_Rates_rounded[,i] <- plyr::round_any(ERx_Rates[,i], 5, f = round)}
+ERx_Rates_rounded$value <- ERx_Rates_rounded$enzyme_replace/ERx_Rates_rounded$population
+
+###### cut date that is after Novemeber 
 cut_date2 <- "2022-11-01"
-a <- which(ERx_Rates$date >= as.Date(cut_date2, format = "%Y-%m-%d"))
-ERx_Rates <- ERx_Rates[-a,]
+a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
 
 # calc rate per 100
-ERx_Rates$rate <- ERx_Rates$enzyme_replace / ERx_Rates$population * 100
+ERx_Rates_rounded$rate <- ERx_Rates_rounded$enzyme_replace / ERx_Rates_rounded$population * 100
+
+### save the rounded file 
+write.table(ERx_Rates_rounded, here::here("output", "ERx_Rates_rounded.csv"),sep = ",",row.names = FALSE)
+
 ###
 # plot monthly number of Rxs
 ###
-p <- ggplot(data = ERx_Rates,
+p <- ggplot(data = ERx_Rates_rounded,
                     aes(date, enzyme_replace)) +
   geom_line()+
   geom_point()+
@@ -56,7 +65,7 @@ ggsave(
 ###
 # plot monthly rates per 100
 ###
-p <- ggplot(data = ERx_Rates,
+p <- ggplot(data = ERx_Rates_rounded,
                           aes(date, rate)) +
   geom_line()+
   geom_point()+
@@ -78,12 +87,12 @@ p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=25),
 # save
 ggsave(
   plot= p, dpi=800,width = 20,height = 10, units = "cm",
-  filename="ERx_rates.png", path=here::here("output"),
+  filename="ERx_Rates.png", path=here::here("output"),
 )
 
 ########## model the data 
 
-model_data <- subset(ERx_Rates, select=c("rate","date"))
+model_data <- subset(ERx_Rates_rounded, select=c("rate","date"))
 model_data$lockdown <- 0 
 model_data$guideline <- 0
 
@@ -94,7 +103,7 @@ guideli <- "2018-02-01"
  
 model_data2 <- model_data[1:dim(model_data)[1],]
 # censor the analysis - cut two months at the end
-#model_data2 <- model_data[1:(dim(ERx_Rates)[1]-2),]
+#model_data2 <- model_data[1:(dim(ERx_Rates_rounded)[1]-2),]
 model_data2$time <- as.numeric(c(1:dim(model_data2)[1]))
 model_data_no_covid <- model_data2
 model_data2$guideline[model_data2$date>guideli & model_data2$date<=start]<-1
@@ -175,12 +184,22 @@ ggsave(
 # plot by region 
 ####
 Region <- read_csv(here::here("output", "measures", "measure_ExByRegion_rate.csv"))
-###### cut data that is after March
-a <- which(Region$date >= as.Date(cut_date2, format = "%Y-%m-%d"))
+###### cut data that is after the cut off date 
+a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
 Region <- Region[-a,]
-Region$rate <- Region$enzyme_replace / Region$population * 100
 
-p <- ggplot(data = Region,
+# Round numerator and denominator 
+Region_rounded <- as.data.frame(Region)
+
+for (i in 2:3){
+  Region_rounded[,i] <- plyr::round_any(Region_rounded[,i], 5, f = round)}
+Region_rounded$value <- Region_rounded$enzyme_replace/Region_rounded$population
+Region_rounded$rate <- Region_rounded$enzyme_replace / Region_rounded$population * 100
+
+### save the rounded file 
+write.table(Region_rounded, here::here("output", "Region_rounded.csv"),sep = ",",row.names = FALSE)
+
+p <- ggplot(data = Region_rounded,
             aes(date, rate, color = region, lty = region)) +
   geom_line()+
   #geom_point(color = "region")+
