@@ -23,7 +23,7 @@ ERx_Rates <- read_csv(here::here("output", "measures", "measure_enzymeRx_rate.cs
 
 ERx_Rates_rounded <- as.data.frame(ERx_Rates)
 for (i in 1:2){
-  ERx_Rates_rounded[,i] <- plyr::round_any(ERx_Rates[,i], 5, f = round)}
+  ERx_Rates_rounded[,i] <- plyr::round_any(as.data.frame(ERx_Rates)[,i], 5, f = round)}
 ERx_Rates_rounded$value <- ERx_Rates_rounded$enzyme_replace/ERx_Rates_rounded$population
 # calc rate per 100
 ERx_Rates_rounded$rate <- ERx_Rates_rounded$enzyme_replace / ERx_Rates_rounded$population * 100
