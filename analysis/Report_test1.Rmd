@@ -22,7 +22,7 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 <br/><br/>
 
 ## Abstract
-**Background:** Cancer treatments were variably disrupted during the COVID-19 pandemic. Despite UK national guidelines recommending pancreatic enzyme replacement therapy to all people with unresectable pancreatic cancer, observational studies demonstrate under-prescribing.
+**Background:** Cancer treatments were variably disrupted during the COVID-19 pandemic. Despite UK national guidelines recommending pancreatic enzyme replacement therapy to all people with unresectable pancreatic cancer, observational studies demonstrate under-prescribing
 
 <b>Aim:</b> To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
 
