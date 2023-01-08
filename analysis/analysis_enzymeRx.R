@@ -188,8 +188,8 @@ Region_rounded$rate <- Region_rounded$enzyme_replace / Region_rounded$population
 ### save the rounded file 
 write.table(Region_rounded, here::here("output", "Region_rounded.csv"),sep = ",",row.names = FALSE)
 ###### cut data that is after the cut off date 
-a <- which(Region$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-Region <- Region[-a,]
+a <- which(Region_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+Region_rounded <- Region_rounded[-a,]
 
 p <- ggplot(data = Region_rounded,
             aes(date, rate, color = region, lty = region)) +
