@@ -27,8 +27,8 @@ for (i in 1:2){
   ERx_Rates_rounded[,i] <- plyr::round_any(ERx_Rates[,i], 5, f = round)}
 ERx_Rates_rounded$value <- ERx_Rates_rounded$enzyme_replace/ERx_Rates_rounded$population
 
-###### cut date that is after Novemeber 
-cut_date2 <- "2022-11-01"
+###### cut date that is after November 
+cut_date2 <- "2022-10-01"
 a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
 ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
 
