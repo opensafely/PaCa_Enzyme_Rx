@@ -37,8 +37,7 @@ ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
 ###
 # plot monthly number of Rxs
 ###
-p <- ggplot(data = ERx_Rates_rounded,
-                    aes(date, enzyme_replace)) +
+p <- ggplot(data = ERx_Rates_rounded,aes(date, enzyme_replace)) +
   geom_line()+
   geom_point()+
   scale_x_date(date_breaks = "2 month",
@@ -79,11 +78,10 @@ QS <- "2018-12-01"
 p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
 p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=25), 
                     color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
-
 # save
 ggsave(
   plot= p, dpi=800,width = 20,height = 10, units = "cm",
-  filename="ERx_Rates.png", path=here::here("output"),
+  filename="ERx_rates.png", path=here::here("output"),
 )
 
 ########## model the data 
