@@ -44,8 +44,8 @@ actions:
         Fig2: output/ERx_rates.png
         Fig3: output/model_rates.png
         Fig4: output/Region.png
-        measure_csv3: output/ERx_Rates_rounded.csv
-        measure_csv4: output/Region_rounded.csv
+        csv3: output/ERx_Rates_rounded.csv
+        csv4: output/Region_rounded.csv
   
   generate_report:
     run: r:latest analysis/Produce_html.R
