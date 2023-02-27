@@ -30,7 +30,7 @@ ERx_Rates_rounded$rate <- ERx_Rates_rounded$enzyme_replace / ERx_Rates_rounded$p
 ### save the rounded file 
 write.table(ERx_Rates_rounded, here::here("output", "ERx_Rates_rounded.csv"),sep = ",",row.names = FALSE)
 ###### cut date that is after November 
-cut_date2 <- "2022-11-01"
+cut_date2 <- "2023-01-01"
 a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
 ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
 
@@ -114,18 +114,20 @@ model_data2$predicted_no_covid <- predict(model,type="response",model_data_no_co
 ilink <- family(model)$linkinv
 model_data2 <- bind_cols(model_data2, setNames(as_tibble(predict(model, model_data2, se.fit = TRUE)[1:2]),
                                              c('fit_link','se_link')))
+
+n <- 4
 model_data2 <- mutate(model_data2,
                      pred  = ilink(fit_link),
-                     upr = ilink(fit_link + (2 * se_link)),
-                     lwr = ilink(fit_link - (2 * se_link)))
+                     upr = ilink(fit_link + (n * se_link)),
+                     lwr = ilink(fit_link - (n * se_link)))
 model_data2 <- bind_cols(model_data2, setNames(as_tibble(predict(model, model_data_no_covid, se.fit = TRUE)[1:2]),
                                              c('fit_link_noCov','se_link_noCov')))
 
 
 model_data2 <- mutate(model_data2,
                      pred_noCov  = ilink(fit_link_noCov),
-                     upr_noCov = ilink(fit_link_noCov + (2 * se_link_noCov)),
-                     lwr_noCov = ilink(fit_link_noCov - (2 * se_link_noCov)))
+                     upr_noCov = ilink(fit_link_noCov + (n * se_link_noCov)),
+                     lwr_noCov = ilink(fit_link_noCov - (n * se_link_noCov)))
 
 
 p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Recorded data")) +
