@@ -30,9 +30,9 @@ ERx_Rates_rounded$rate <- ERx_Rates_rounded$enzyme_replace / ERx_Rates_rounded$p
 ### save the rounded file 
 write.table(ERx_Rates_rounded, here::here("output", "ERx_Rates_rounded.csv"),sep = ",",row.names = FALSE)
 ###### cut date that is after November 
-cut_date2 <- "2023-01-01"
-a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
+#cut_date2 <- "2023-01-01"
+#a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+#ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
 
 ###
 # plot monthly number of Rxs
@@ -190,8 +190,8 @@ Region_rounded$rate <- Region_rounded$enzyme_replace / Region_rounded$population
 ### save the rounded file 
 write.table(Region_rounded, here::here("output", "Region_rounded.csv"),sep = ",",row.names = FALSE)
 ###### cut data that is after the cut off date 
-a <- which(Region_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
-Region_rounded <- Region_rounded[-a,]
+#a <- which(Region_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
+#Region_rounded <- Region_rounded[-a,]
 
 p <- ggplot(data = Region_rounded,
             aes(date, rate, color = region, lty = region)) +
