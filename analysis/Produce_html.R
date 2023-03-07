@@ -5,5 +5,5 @@ library(here)
 library(MASS)
 library(rmarkdown)
 
-rmarkdown::render(here::here("analysis", "Report_test1.Rmd"), 
-                  output_file = "Test1_R.html", output_dir = "output")
+rmarkdown::render(here::here("analysis", "Report_html.Rmd"), 
+                  output_file = "Report_file.html", output_dir = "output")
