@@ -17,20 +17,23 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
 Updatd 3-monthly, <span style="text-decoration:underline">next update due June 2023</span>
 The full text of this study has been published [here](https://doi.org/10.1101/2022.07.08.22277317)
 
-<br/><br/>
+>## Index
+<ol>
+    <li> [National rates]</li>
+    <li> [Regional rates]</li>
+    <ul>
+        <li>[East of England]</li>
+        <li>[East Midlands]</li>
+        <li>[London]</li>
+        <li>[North East]</li>
+        <li>[North West]</li>
+        <li>[South East]</li>
+        <li>[South West]</li>
+        <li>[West Midlands]</li>
+        <li>[Yorkshire and The Humber]</li>
+    </ul>
+</ol>
 
-## Index 
-Section 1. [National rates]<br/>
-Section 2. [Regional rates]<br/>
-Section 2.1. [East of England]<br/>
-Section 2.2. [East Midlands]<br/>
-Section 2.3. [London]<br/>
-Section 2.4. [North East]<br/>
-Section 2.5. [North West]<br/>
-Section 2.6. [South East]<br/>
-Section 2.7. [South West]<br/>
-Section 2.8. [West Midlands]<br/>
-Section 2.9. [Yorkshire and The Humber]<br/>
 
 ## Abstract
 **Background:** Cancer treatments were variably disrupted during the COVID-19 pandemic. Despite UK national guidelines recommending pancreatic enzyme replacement therapy to all people with unresectable pancreatic cancer, observational studies demonstrate under-prescribing
@@ -49,53 +52,51 @@ knitr::include_graphics(here::here("analysis", "Flowchart3.png"))
 
 <br/><br/>
 
-## Results 
-
-### National rates
+## National rates
 _Figure 2_ shows the rates in prescribing over time in England. Overall, the COVID-19 pandemic did not affect PERT prescribing to people with unresectable pancreatic cancer. A small decrease in rates, by about 3% (from 46% to 43%), was observed at the beginning of the pandemic from March to July 2020. This dip in rates could potentially be associated with the effect of the COVID-19 healthcare crisis. However, the rates of prescribing recovered by September 2020 to rates that would be expected if the pandemic had not occurred. 
 
 In view of the national target rate of 100%, the national trend increased gradually over time on average by 1% every year, ranging from 41% in 2015 to 48% in 2022 (_Figure 2_). 
 
 <br/><br/>
 
-```{r fig2, fig.height=1, fig.width=2, fig.cap="Figure 2. Prescribing rates in England"}
+```{r fig2, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "model_rates.png"))
 ```
 
 <br/><br/>
 
-### Regional rates
+## Regional rates
 _Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Throughout the study period, the lowest rates of between 20% to 30% were in the London region. The effect of COVID-19 was the most pronounced in the West Midlands area with a dip in rates by nearly 10% (from 50% to 40%) in July 2020. This recovered by September 2020 to higher than the pre-pandemic levels. 
 
 <br/><br/>
 
-```{r fig3, fig.height=1, fig.width=2, fig.cap="Figure 3. Prescribing rates in Regions in England"}
+```{r fig3, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Region.png"))
 ```
 
 <br/><br/>
 
-#### East of England
+### East of England
 
 <br/><br/>
 
-```{r fig4, fig.height=1, fig.width=2, fig.cap=""}
-knitr::include_graphics(here::here("output", "Figure_3A_East.png"))
-```
+<!-- ```{r fig4, fig.height=1, fig.width=2, fig.cap=""} -->
+<!-- knitr::include_graphics(here::here("output", "Figure_3A_East.png")) -->
+<!-- ``` -->
 
 <br/><br/>
 
-#### East Midlands
+### East Midlands
 
 <br/><br/>
 
-```{r fig5, fig.height=1, fig.width=2, fig.cap=""}
-knitr::include_graphics(here::here("output", "Figure_3B_East Midlands.png"))
-```
+<!-- ```{r fig5, fig.height=1, fig.width=2, fig.cap=""} -->
+<!-- knitr::include_graphics(here::here("output", "Figure_3B_East Midlands.png")) -->
+<!-- ``` -->
 
 <br/><br/>
 
-#### London
+### London
 
 <br/><br/>
 
@@ -105,7 +106,7 @@ knitr::include_graphics(here::here("output", "Figure_3C_London.png"))
 
 <br/><br/>
 
-#### North East
+### North East
 
 <br/><br/>
 
@@ -115,7 +116,7 @@ knitr::include_graphics(here::here("output", "Figure_3D_North East.png"))
 
 <br/><br/>
 
-#### North West
+### North West
 
 <br/><br/>
 
@@ -125,7 +126,7 @@ knitr::include_graphics(here::here("output", "Figure_3E_North West.png"))
 
 <br/><br/>
 
-#### South East
+### South East
 
 <br/><br/>
 
@@ -135,33 +136,33 @@ knitr::include_graphics(here::here("output", "Figure_3F_South East.png"))
 
 <br/><br/>
 
-#### South West
+### South West
 
 <br/><br/>
 
-```{r fig10, fig.height=1, fig.width=2, fig.cap=""}
-knitr::include_graphics(here::here("output", "Figure_3G_South West.png"))
-```
+<!-- ```{r fig10, fig.height=1, fig.width=2, fig.cap=""} -->
+<!-- knitr::include_graphics(here::here("output", "Figure_3G_South West.png")) -->
+<!-- ``` -->
 
 <br/><br/>
 
-#### West Midlands
+### West Midlands
 
 <br/><br/>
 
-```{r fig11, fig.height=1, fig.width=2, fig.cap=""}
-knitr::include_graphics(here::here("output", "Figure_3H_West Midlands.png"))
-```
+<!-- ```{r fig11, fig.height=1, fig.width=2, fig.cap=""} -->
+<!-- knitr::include_graphics(here::here("output", "Figure_3H_West Midlands.png")) -->
+<!-- ``` -->
 
 <br/><br/>
 
-#### Yorkshire and The Humber
+### Yorkshire and The Humber
 
 <br/><br/>
 
-```{r fig12, fig.height=1, fig.width=2, fig.cap=""}
-knitr::include_graphics(here::here("output", "Figure_3I_Yorkshire and The Humber.png"))
-```
+<!-- ```{r fig12, fig.height=1, fig.width=2, fig.cap=""} -->
+<!-- knitr::include_graphics(here::here("output", "Figure_3I_Yorkshire and The Humber.png")) -->
+<!-- ``` -->
 
 <br/><br/>
 

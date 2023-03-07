@@ -226,13 +226,14 @@ ggsave(
   plot= p, dpi=800,width = 20,height = 10, units = "cm",
   filename="Region.png", path=here::here("output"),
 )
-
-
-###GLM per region 
+#
+### regional 
+#
 name_vector <- names(table(Region_rounded$region))
 fig_vector <- toupper(letters)[1: length(name_vector)]
-########## model the data 
 
+########## 
+###GLM per region model the data 
 for (i in name_vector){
   Reg_r <- Region_rounded[which(Region_rounded$region==i),]
   
@@ -285,27 +286,28 @@ for (i in name_vector){
     theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
   start <- "2020-03-01"
   p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-  # p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=12), 
-  #                     color = "red",label="Lockdown", angle = 90, size = 3)
+  p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=6), 
+                      color = "red",label="Lockdown", angle = 90, size = 3)
   
   guideli <- "2018-02-01"
   p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
-  # p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=12), 
-  #                     color = "black",label="National\nguidelines", angle = 90, size = 3)
+  p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=6), 
+                      color = "black",label="National\nguidelines", angle = 90, size = 3)
   
   QS <- "2018-12-01"
   p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
-  # p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=12), 
-  #                     color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
+  p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=6), 
+                      color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
   
   p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
   #p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
   p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
   p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                    lty=0, fill = "red", alpha = 0.1)
-  p <- p + labs(caption="OpenSafely-TPP March 2023")
+  #p <- p + labs(caption="OpenSafely-TPP March 2023")
   p <- p + theme(plot.caption = element_text(size=8))
   p <- p + theme(plot.title = element_text(size = 10))
+  p <- p + theme(legend.position = "none") 
   p <- p + scale_color_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "black", 
                                                       "Model with COVID-19" = "blue"),guide="none")
   p <- p + scale_linetype_manual(name = NULL, values = c("Model" = "solid", "Recorded data" = "solid",
@@ -317,8 +319,50 @@ for (i in name_vector){
   
   ggsave(
     plot= p, dpi=800,width = 20,height = 10, units = "cm",
-    filename = paste0("Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
-  
-  
+    filename = paste0("GLM_Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
 }
 
+########## 
+###no GLM 
+for (i in name_vector){
+  Reg_r <- Region_rounded[which(Region_rounded$region==i),]
+  
+  model_data <- subset(Reg_r , select=c("rate","date"))
+
+  ####plot 
+  model_data$date <- as.Date(model_data$date, format = "%d/%m/%Y")
+  
+  p <- ggplot(data = model_data,aes(date, rate)) +
+    geom_line()+
+    geom_point()+
+    scale_x_date(date_breaks = "3 month",
+                 date_labels = "%Y-%m")+
+    labs(title = paste0("Patients receiving enzyme replacement \n Figure 1",fig_vector[which(name_vector==i)],". Region: ",i), 
+         x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
+    theme_bw()+
+    scale_y_continuous(limits = c(0, 80))+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
+  start <- "2020-03-01"
+  p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+  p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=6), 
+                      color = "red",label="Lockdown", angle = 90, size = 3)
+  
+  guideli <- "2018-02-01"
+  p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
+  p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=6), 
+                      color = "black",label="National\nguidelines", angle = 90, size = 3)
+  
+  QS <- "2018-12-01"
+  p <- p + geom_vline(xintercept=as.Date(QS, format="%Y-%m-%d"), size=0.3, colour="darkgreen")
+  p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=6), 
+                      color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
+  
+  #p <- p + labs(caption="OpenSafely-TPP March 2023")
+  p <- p + theme(plot.caption = element_text(size=8))
+  p <- p + theme(plot.title = element_text(size = 10))
+  p <- p + theme(legend.position = "none") 
+
+  ggsave(
+    plot= p, dpi=800,width = 20,height = 10, units = "cm",
+    filename = paste0("Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
+}
