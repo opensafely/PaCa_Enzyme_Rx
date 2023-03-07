@@ -80,9 +80,9 @@ knitr::include_graphics(here::here("output", "Region.png"))
 
 <br/><br/>
 
-<!-- ```{r fig4, fig.height=1, fig.width=2, fig.cap=""} -->
-<!-- knitr::include_graphics(here::here("output", "Figure_3A_East.png")) -->
-<!-- ``` -->
+```{r fig4, fig.height=1, fig.width=2, fig.cap=""}
+knitr::include_graphics(here::here("output", "Figure_3A_East.png"))
+```
 
 <br/><br/>
 
@@ -90,9 +90,9 @@ knitr::include_graphics(here::here("output", "Region.png"))
 
 <br/><br/>
 
-<!-- ```{r fig5, fig.height=1, fig.width=2, fig.cap=""} -->
-<!-- knitr::include_graphics(here::here("output", "Figure_3B_East Midlands.png")) -->
-<!-- ``` -->
+```{r fig5, fig.height=1, fig.width=2, fig.cap=""}
+knitr::include_graphics(here::here("output", "Figure_3B_East Midlands.png"))
+```
 
 <br/><br/>
 
@@ -140,9 +140,9 @@ knitr::include_graphics(here::here("output", "Figure_3F_South East.png"))
 
 <br/><br/>
 
-<!-- ```{r fig10, fig.height=1, fig.width=2, fig.cap=""} -->
-<!-- knitr::include_graphics(here::here("output", "Figure_3G_South West.png")) -->
-<!-- ``` -->
+```{r fig10, fig.height=1, fig.width=2, fig.cap=""}
+knitr::include_graphics(here::here("output", "Figure_3G_South West.png"))
+```
 
 <br/><br/>
 
@@ -150,9 +150,9 @@ knitr::include_graphics(here::here("output", "Figure_3F_South East.png"))
 
 <br/><br/>
 
-<!-- ```{r fig11, fig.height=1, fig.width=2, fig.cap=""} -->
-<!-- knitr::include_graphics(here::here("output", "Figure_3H_West Midlands.png")) -->
-<!-- ``` -->
+```{r fig11, fig.height=1, fig.width=2, fig.cap=""}
+knitr::include_graphics(here::here("output", "Figure_3H_West Midlands.png"))
+```
 
 <br/><br/>
 
@@ -160,9 +160,9 @@ knitr::include_graphics(here::here("output", "Figure_3F_South East.png"))
 
 <br/><br/>
 
-<!-- ```{r fig12, fig.height=1, fig.width=2, fig.cap=""} -->
-<!-- knitr::include_graphics(here::here("output", "Figure_3I_Yorkshire and The Humber.png")) -->
-<!-- ``` -->
+```{r fig12, fig.height=1, fig.width=2, fig.cap=""}
+knitr::include_graphics(here::here("output", "Figure_3I_Yorkshire and The Humber.png"))
+```
 
 <br/><br/>
 
