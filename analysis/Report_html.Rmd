@@ -42,10 +42,11 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 
 **Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from 1st January 2015 to 30th November 2022 and investigated the effect of COVID-19 with multivariable linear regression.
 
-**Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 50% in 2022. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands and lowest (20% to 30%) in London.
+**Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 50% in 2022. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands.
 
 **Conclusions:** 
 The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. Although overall rates increased over time, substantial under-prescribing persists. At just under 50% in 2022, the rates were still below the recommended 100% standard. Despite the national guidelines, under-prescribing of PERT continued and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients with pancreatic cancer. The research into barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
+
 ```{r fig1, fig.height=4, fig.width=3, fig.cap="Figure 1. Study flowchart explaining inclusion and exclusion criteria. Each month the rate was calculated of people receiving pancreatic enzyme replacement therapy (numerator) among people with unresectable pancreatic cancer (denominator)."}
 knitr::include_graphics(here::here("analysis", "Flowchart3.png"))
 ```
@@ -59,7 +60,7 @@ In view of the national target rate of 100%, the national trend increased gradua
 
 <br/><br/>
 
-```{r fig2, fig.height=1, fig.width=2, fig.cap=""}
+```{r fig2, fig.height=1, fig.width=2, fig.cap="Figure 2. Prescribing rates in England"}
 knitr::include_graphics(here::here("output", "model_rates.png"))
 ```
 
@@ -70,14 +71,14 @@ _Figure 3_ shows the rates in prescribing by regions in England. The highest rat
 
 <br/><br/>
 
-```{r fig3, fig.height=1, fig.width=2, fig.cap="Figure 2. Prescribing rates in England"}
+```{r fig3, fig.height=1, fig.width=2, fig.cap="Figure 3. Prescribing rates in Regions in England"}
 knitr::include_graphics(here::here("output", "Region.png"))
 ```
 
 <br/><br/>
 
 ### East of England
-```{r fig4, fig.height=1, fig.width=2, fig.cap="Figure 3. Prescribing rates in Regions in England"}
+```{r fig4, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3A_East.png"))
 ```
 
