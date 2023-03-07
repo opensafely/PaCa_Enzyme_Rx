@@ -66,105 +66,78 @@ knitr::include_graphics(here::here("output", "model_rates.png"))
 <br/><br/>
 
 ## Regional rates
-_Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Throughout the study period, the lowest rates of between 20% to 30% were in the London region. The effect of COVID-19 was the most pronounced in the West Midlands area with a dip in rates by nearly 10% (from 50% to 40%) in July 2020. This recovered by September 2020 to higher than the pre-pandemic levels. 
+_Figure 3_ shows the rates in prescribing by regions in England. The highest rates, achieving values between 50% and 60% from 2018 onwards were in the West Midlands region. Please note, data for London is limited in this dataset and therefore the representativeness of figures for London is limited and difficult to assess. The effect of COVID-19 was the most pronounced in the North East area with a dip in rates by nearly 10% (from 40% to 30%). This recovered by the end of 2022 to higher than the pre-pandemic levels. 
 
 <br/><br/>
 
-```{r fig3, fig.height=1, fig.width=2, fig.cap=""}
+```{r fig3, fig.height=1, fig.width=2, fig.cap="Figure 2. Prescribing rates in England"}
 knitr::include_graphics(here::here("output", "Region.png"))
 ```
 
 <br/><br/>
 
 ### East of England
-
-<br/><br/>
-
-```{r fig4, fig.height=1, fig.width=2, fig.cap=""}
+```{r fig4, fig.height=1, fig.width=2, fig.cap="Figure 3. Prescribing rates in Regions in England"}
 knitr::include_graphics(here::here("output", "Figure_3A_East.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### East Midlands
-
-<br/><br/>
-
 ```{r fig5, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3B_East Midlands.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### London
-
-<br/><br/>
-
 ```{r fig6, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3C_London.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### North East
-
-<br/><br/>
-
 ```{r fig7, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3D_North East.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### North West
-
-<br/><br/>
-
 ```{r fig8, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3E_North West.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### South East
-
-<br/><br/>
-
 ```{r fig9, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3F_South East.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### South West
-
-<br/><br/>
-
 ```{r fig10, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3G_South West.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### West Midlands
-
-<br/><br/>
-
 ```{r fig11, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3H_West Midlands.png"))
 ```
 
-<br/><br/>
+<br/>
 
 ### Yorkshire and The Humber
-
-<br/><br/>
-
 ```{r fig12, fig.height=1, fig.width=2, fig.cap=""}
 knitr::include_graphics(here::here("output", "Figure_3I_Yorkshire and The Humber.png"))
 ```
 
-<br/><br/>
+<br/>
 
 #### End of the report
 

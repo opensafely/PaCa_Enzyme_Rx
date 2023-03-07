@@ -279,7 +279,7 @@ for (i in name_vector){
     geom_point()+
     scale_x_date(date_breaks = "3 month",
                  date_labels = "%Y-%m")+
-    labs(title = paste0("Patients receiving enzyme replacement \n Figure 1",fig_vector[which(name_vector==i)],". Region: ",i), 
+    labs(title = paste0("Figure 3",fig_vector[which(name_vector==i)],". Region: ",i), 
          x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
     theme_bw()+
     scale_y_continuous(limits = c(0, 80))+
@@ -318,8 +318,8 @@ for (i in name_vector){
                                                             shape = c(NA, NA, 16))))
   
   ggsave(
-    plot= p, dpi=800,width = 20,height = 10, units = "cm",
-    filename = paste0("GLM_Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
+    plot= p, dpi=800,width = 20,height = 7, units = "cm",
+    filename = paste0("Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
 }
 
 ########## 
@@ -337,7 +337,7 @@ for (i in name_vector){
     geom_point()+
     scale_x_date(date_breaks = "3 month",
                  date_labels = "%Y-%m")+
-    labs(title = paste0("Patients receiving enzyme replacement \n Figure 1",fig_vector[which(name_vector==i)],". Region: ",i), 
+    labs(title = paste0("Figure 3",fig_vector[which(name_vector==i)],". Region: ",i), 
          x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
     theme_bw()+
     scale_y_continuous(limits = c(0, 80))+
@@ -363,6 +363,6 @@ for (i in name_vector){
   p <- p + theme(legend.position = "none") 
 
   ggsave(
-    plot= p, dpi=800,width = 20,height = 10, units = "cm",
-    filename = paste0("Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
+    plot= p, dpi=800,width = 20,height = 7, units = "cm",
+    filename = paste0("NoGLM_Figure_3",fig_vector[which(name_vector==i)],"_",i,".png"), path=here::here("output"))
 }
