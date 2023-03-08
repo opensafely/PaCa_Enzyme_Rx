@@ -284,7 +284,7 @@ for (i in name_vector){
     labs(title = paste0("Figure 3",fig_vector[which(name_vector==i)],". Region: ",i), 
          x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
     theme_bw()+
-    scale_y_continuous(limits = c(0, 70))+
+    scale_y_continuous(limits = c(0, 75))+
     theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
   start <- "2020-03-01"
   p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
@@ -342,7 +342,7 @@ for (i in name_vector){
     labs(title = paste0("Figure 3",fig_vector[which(name_vector==i)],". Region: ",i), 
          x = "", y = "Rate per 100 patients with \nunresectable pancreatic cancer")+
     theme_bw()+
-    scale_y_continuous(limits = c(0, 70))+
+    scale_y_continuous(limits = c(0, 75))+
     theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
   start <- "2020-03-01"
   p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
