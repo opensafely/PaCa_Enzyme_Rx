@@ -141,9 +141,9 @@ p <- ggplot(data = model_data,aes(date, rate, color = "Recorded data", lty="Reco
   scale_y_continuous(limits = c(0, 70))+
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
 start <- "2020-03-01"
-p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
-p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=10), 
-                    color = "red",label="Lockdown", angle = 90, size = 3)
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="blue")
+p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d"), y=10), 
+                    color = "blue",label="Beginning of\nCOVID-19 restrictions", angle = 90, size = 3)
 
 guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
@@ -157,17 +157,17 @@ p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=10),
 
 p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19", lty="Model with COVID-19"), size=0.5)
 #p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr, ymax = upr), fill = "grey30", alpha = 0.1)
-p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
+p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model no COVID-19", lty="Model no COVID-19"), size=0.5)
 p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                  lty=0, fill = "red", alpha = 0.1)
 p <- p + labs(caption="OpenSafely-TPP March 2023")
 p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
-p <- p + scale_color_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "black", 
+p <- p + scale_color_manual(name = NULL, values = c("Model no COVID-19" = "red", "Recorded data" = "black", 
                                                  "Model with COVID-19" = "blue"),guide="none")
-p <- p + scale_linetype_manual(name = NULL, values = c("Model" = "solid", "Recorded data" = "solid",
+p <- p + scale_linetype_manual(name = NULL, values = c("Model no COVID-19" = "solid", "Recorded data" = "solid",
                                                    "Model with COVID-19" = "dashed"),guide="none")
-p <- p + scale_fill_manual(name = NULL, values = c("Model" = "red", "Recorded data" = "white",
+p <- p + scale_fill_manual(name = NULL, values = c("Model no COVID-19" = "red", "Recorded data" = "white",
                                                     "Model with COVID-19" = "white"),guide="none")
 p <- p + guides(colour = guide_legend(override.aes = list(linetype=c(1,2,1),fill=c("red",NA,NA), 
                                                           shape = c(NA, NA, 16))))
@@ -210,9 +210,9 @@ p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
 
 start <- "2020-03-01"
-p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="red")
+p <- p + geom_vline(xintercept=as.Date(start, format="%Y-%m-%d"), size=0.3, colour="blue")
 p <- p +  geom_text(aes(x=as.Date(start, format="%Y-%m-%d")+25, y=10), 
-                    color = "red",label="Lockdown", angle = 90, size = 3)
+                    color = "blue",label="Beginning of\nCOVID-19 restrictions", angle = 90, size = 3)
 guideli <- "2018-02-01"
 p <- p + geom_vline(xintercept=as.Date(guideli, format="%Y-%m-%d"), size=0.3, colour="black")
 p <- p +  geom_text(aes(x=as.Date(guideli, format="%Y-%m-%d"), y=10), 
