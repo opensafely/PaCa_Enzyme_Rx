@@ -13,8 +13,9 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
 ```
 
 **Produced using OpenSAFELY-TPP**
-
-Updatd 3-monthly, <span style="text-decoration:underline">next update due June 2023</span>
+Created March 2023
+Last updated June 2023
+Updatd 3-monthly, <span style="text-decoration:underline">next update due September 2023</span>
 The full text of this study has been published [here](https://doi.org/10.1101/2022.07.08.22277317)
 
 >## Index
@@ -40,12 +41,12 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 
 <b>Aim:</b> To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
 
-**Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from 1st January 2015 to 30th November 2022 and investigated the effect of COVID-19 with multivariable linear regression.
+**Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from 1st January 2015 to 30th April 2023 and investigated the effect of COVID-19 with multivariable linear regression.
 
-**Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 50% in 2022. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands.
+**Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 50% in 2023. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands.
 
 **Conclusions:** 
-The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. Although overall rates increased over time, substantial under-prescribing persists. At just under 50% in 2022, the rates were still below the recommended 100% standard. Despite the national guidelines, under-prescribing of PERT continued and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients with pancreatic cancer. The research into barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
+The COVID-19 pandemic did not affect PERT prescribing in unresectable pancreatic cancer. Although overall rates increased over time, substantial under-prescribing persists. At just under 50% in 2023, the rates were still below the recommended 100% standard. Despite the national guidelines, under-prescribing of PERT continued and has improved only marginally since their publication. This could be an important missed opportunity to reduce morbidity for patients with pancreatic cancer. The research into barriers to prescribing of PERT and geographic variation is urgently needed to improve quality of care.
 
 ```{r fig1, fig.height=4, fig.width=3, fig.cap="Figure 1. Study flowchart explaining inclusion and exclusion criteria. Each month the rate was calculated of people receiving pancreatic enzyme replacement therapy (numerator) among people with unresectable pancreatic cancer (denominator)."}
 knitr::include_graphics(here::here("analysis", "Flowchart3.png"))
@@ -56,7 +57,7 @@ knitr::include_graphics(here::here("analysis", "Flowchart3.png"))
 ## National rates
 _Figure 2_ shows the rates in prescribing over time in England. Overall, the COVID-19 pandemic did not affect PERT prescribing to people with unresectable pancreatic cancer. A small decrease in rates, by about 3% (from 46% to 43%), was observed at the beginning of the pandemic from March to July 2020. This dip in rates could potentially be associated with the effect of the COVID-19 healthcare crisis. However, the rates of prescribing recovered by September 2020 to rates that would be expected if the pandemic had not occurred. 
 
-In view of the national target rate of 100%, the national trend increased gradually over time on average by 1% every year, ranging from 41% in 2015 to 48% in 2022 (_Figure 2_). 
+In view of the national target rate of 100%, the national trend increased gradually over time on average by 1% every year, ranging from 41% in 2015 to 50% in 2023 (_Figure 2_). 
 
 <br/><br/>
 
