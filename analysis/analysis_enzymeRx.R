@@ -160,7 +160,7 @@ p<-p+geom_line(data=model_data2, aes(y=predicted, color = "Model with COVID-19",
 p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model no COVID-19", lty="Model no COVID-19"), size=0.5)
 p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                  lty=0, fill = "red", alpha = 0.1)
-p <- p + labs(caption="OpenSafely-TPP June 2023")
+p <- p + labs(caption="OpenSafely-TPP July 2023")
 p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
 p <- p + scale_color_manual(name = NULL, values = c("Model no COVID-19" = "red", "Recorded data" = "black", 
@@ -205,7 +205,7 @@ p <- ggplot(data = Region_rounded,
   theme_bw()+
   scale_y_continuous(limits = c(0, 70))+
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position="bottom")
-p <- p + labs(caption="OpenSafely-TPP June 2023")
+p <- p + labs(caption="OpenSafely-TPP July 2023")
 p <- p + theme(plot.caption = element_text(size=8))
 p <- p + theme(plot.title = element_text(size = 10))
 
@@ -306,7 +306,7 @@ for (i in name_vector){
   p<-p+geom_line(data=model_data2, aes(y=predicted_no_covid, color = "Model", lty="Model"), size=0.5)
   p<-p+geom_ribbon(data=model_data2, aes(ymin = lwr_noCov, ymax = upr_noCov),color = "red",
                    lty=0, fill = "red", alpha = 0.1)
-  #p <- p + labs(caption="OpenSafely-TPP June 2023")
+  #p <- p + labs(caption="OpenSafely-TPP July 2023")
   p <- p + theme(plot.caption = element_text(size=8))
   p <- p + theme(plot.title = element_text(size = 10))
   p <- p + theme(legend.position = "none") 
@@ -359,7 +359,7 @@ for (i in name_vector){
   p <- p +  geom_text(aes(x=as.Date(QS, format="%Y-%m-%d"), y=10), 
                       color = "darkgreen",label="Quality\nstandard", angle = 90, size = 3)
   
-  #p <- p + labs(caption="OpenSafely-TPP June 2023")
+  #p <- p + labs(caption="OpenSafely-TPP July 2023")
   p <- p + theme(plot.caption = element_text(size=8))
   p <- p + theme(plot.title = element_text(size = 10))
   p <- p + theme(legend.position = "none") 
