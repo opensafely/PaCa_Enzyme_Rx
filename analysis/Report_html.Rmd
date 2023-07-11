@@ -2,7 +2,14 @@
 title: "PERT prescribing in pancreatic cancer"
 author: "a.lemanska@surrey.ac.uk"
 date: 'Created March 2023'
-output: html_document
+output: 
+  html_document:
+    theme: null
+    highlight: null
+    mathjax: null
+    toc: false
+    fig_caption: false
+    df_print: default
 ---
 
 ```{r setup, include=FALSE}
