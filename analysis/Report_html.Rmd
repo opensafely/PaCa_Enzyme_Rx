@@ -1,7 +1,7 @@
 ---
 title: "PERT prescribing in pancreatic cancer"
 author: "a.lemanska@surrey.ac.uk"
-date: 'Created March 2023'
+date: 'Created January 2023'
 output: 
   html_document:
     theme: null
@@ -20,10 +20,10 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
 ```
 
 **Produced using OpenSAFELY-TPP**
-Created March 2023
-Last updated June 2023
-Updatd 3-monthly, <span style="text-decoration:underline">next update due September 2023</span>
-The full text of this study has been published [here](https://doi.org/10.1101/2022.07.08.22277317)
+Created January 2023
+Last updated July 2023
+Updated 3-monthly, <span style="text-decoration:underline">next update due October 2023</span>
+The full text of this study has been published [here](https://doi.org/10.1016/j.soncn.2023.151439)
 
 >## Index
 <ol>
@@ -48,7 +48,7 @@ The full text of this study has been published [here](https://doi.org/10.1101/20
 
 <b>Aim:</b> To investigate the impact of the COVID-19 pandemic on the prescribing of pancreatic enzyme replacement to people with unresectable pancreatic cancer.
 
-**Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from 1st January 2015 to 30th April 2023 and investigated the effect of COVID-19 with multivariable linear regression.
+**Methods:** With the approval of NHS England, we conducted a cohort study using 24 million health records through the OpenSAFELY-TPP research platform. We modelled prescribing rates from 1st January 2015 to 31st May 2023 and investigated the effect of COVID-19 with multivariable linear regression.
 
 **Results** We found no reduction in pancreatic enzyme replacement therapy during the COVID-19 pandemic. Overall, since 2015, the rates of prescribing increased steadily over time by 1% every year. The national rates ranged from 41% in 2015 to 50% in 2023. There was substantial regional variation. The highest rates of 50% to 60% were in the West Midlands.
 
