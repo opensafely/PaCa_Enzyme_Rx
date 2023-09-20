@@ -1,6 +1,6 @@
 # Pancreatic enzyme supplementation in people with pancreatic cancer, with the project on Pancreatic cancer care in the COVID-19 pandemic
 
-[View on OpenSAFELY](https://jobs.opensafely.org/datalab/pancreaticcancer_enzyme_rx/)
+[View on OpenSAFELY](https://jobs.opensafely.org/datalab/pancreatic-cancer/)
 
 Details of the purpose and any published outputs from this project can be found at the link above.
 
