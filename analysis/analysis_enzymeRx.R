@@ -29,7 +29,7 @@ ERx_Rates_rounded$value <- ERx_Rates_rounded$enzyme_replace/ERx_Rates_rounded$po
 ERx_Rates_rounded$rate <- ERx_Rates_rounded$enzyme_replace / ERx_Rates_rounded$population * 100
 ### save the rounded file 
 write.table(ERx_Rates_rounded, here::here("output", "ERx_Rates_rounded.csv"),sep = ",",row.names = FALSE)
-###### cut date that is incompete (tipically last month)
+###### cut date that is incomplete (thypically last month)
 #cut_date2 <- "2023-01-01"
 #a <- which(ERx_Rates_rounded$date > as.Date(cut_date2, format = "%Y-%m-%d"))
 #ERx_Rates_rounded <- ERx_Rates_rounded[-a,]
