@@ -2,25 +2,25 @@
   "files": {
     "user-agleman-pancreatic_cancer_snomed.csv": {
       "id": "user/agleman/pancreatic_cancer_snomed/11566403",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/pancreatic_cancer_snomed/11566403/",
+      "url": "https://www.opencodelists.org/codelist/user/agleman/pancreatic_cancer_snomed/11566403/",
       "downloaded_at": "2022-03-01 23:47:26.038802Z",
       "sha": "68a1b0eb6896e6d6bb94fd912a90bc11e8797b0c"
     },
     "user-agleman-pancreatic-enzyme-replacement-therapy-dmd.csv": {
       "id": "user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc/",
-      "downloaded_at": "2022-03-04 15:43:07.000526Z",
-      "sha": "96b5d2a485eb14317b1fbc41361e44db04730044"
+      "url": "https://www.opencodelists.org/codelist/user/agleman/pancreatic-enzyme-replacement-therapy-dmd/7137cecc/",
+      "downloaded_at": "2024-06-05 15:22:32.143406Z",
+      "sha": "1ab270d39cd9a031428561fdc405d4d96f796483"
     },
     "user-agleman-pancreatic-cancer-icd10.csv": {
       "id": "user/agleman/pancreatic-cancer-icd10/6abfc802",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/pancreatic-cancer-icd10/6abfc802/",
+      "url": "https://www.opencodelists.org/codelist/user/agleman/pancreatic-cancer-icd10/6abfc802/",
       "downloaded_at": "2022-03-01 23:47:26.572170Z",
       "sha": "bf5f5c19c16ae8f02efd4915982e4b5910d4bbaf"
     },
     "user-agleman-resection-of-pancreatic-cancer-opcs-4.csv": {
       "id": "user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a",
-      "url": "https://codelists.opensafely.org/codelist/user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a/",
+      "url": "https://www.opencodelists.org/codelist/user/agleman/resection-of-pancreatic-cancer-opcs-4/7eb58e9a/",
       "downloaded_at": "2022-03-07 17:00:44.873722Z",
       "sha": "39aa544fe8661ff10e96d73b6ce333105b1c042d"
     }
